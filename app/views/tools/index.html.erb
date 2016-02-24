@@ -1,0 +1,13 @@
+<h1> All Tools </h1>
+
+<% @tools.each do |tool| %>
+  <h3><%= tool.name %> - <%= tool.quantity %> <%= link_to "Link to View #{tool.name}", tool_path(tool.id) %></h3>
+<% end %>
+
+<p>
+  <% if session[:most_recent_tool_id].nil?  %>
+    <%= "No new tools!" %>
+  <% else  %>
+    <strong>Newest tool: </strong><%= session[:most_recent_tool_id] %>
+  <% end %>
+</p>
