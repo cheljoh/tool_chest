@@ -1,16 +1,15 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-  helper_method :most_recent_tool, :current_tool_summary, :current_user
+  helper_method :most_recent_tool, :current_admin?, :current_tool_summary, :current_user
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  # def most_recent_tool
-  #   last_tool = Tool.order(:created_at).last
-  #   session[:most_recent_tool_id] = last_tool
-  # end
+  def current_admin?
+    current_user && current_user.admin?
+  end
 
   def current_tool_summary
     all_tools = Tool.all.count

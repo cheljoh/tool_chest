@@ -24,4 +24,26 @@ class ToolCreationTest < ActionDispatch::IntegrationTest
       assert page.has_content?("10")
     end
   end
+
+  test "user can choose a category" do
+    user = User.create(username: "chelsea", password: "password")
+    # tool = user.tools.create(name: "hammer", price: 20, quantity: 10)
+    # tool.category = Category.create(name: "fun")
+    Category.create(name: "cool")
+
+    visit login_path
+    fill_in "Username", with: user.username
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    visit new_tool_path
+
+    fill_in "Name", with: "Screwdriver"
+    fill_in "Price", with: "10.99"
+    fill_in "Quantity", with: "10"
+    # select 'cool', from: 'category'
+    click_button "Create Tool"
+
+    # assert page.has_content? "hammer"
+  end
 end

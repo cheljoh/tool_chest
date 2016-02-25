@@ -1,0 +1,11 @@
+<h1><%= @category.name%></h1>
+
+<%= link_to "Delete Category", admin_category_path(@category), method: "delete" %>
+
+<h3>Tools Associated with this Category:</h3>
+
+<% @category_tools.each do |tool|  %>
+
+  <%= tool.name  %>
+
+<% end %>

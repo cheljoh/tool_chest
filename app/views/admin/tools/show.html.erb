@@ -1,0 +1,7 @@
+<h1>Tool</h1>
+
+<div class = "tool_info">
+<%= @tool.name %> - <%= @tool.quantity %>
+<%= @tool.formatted_price %>
+<%= link_to "Delete Tool", admin_tool_path(@tool), method: "delete" %>
+</div>
