@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :tools
   resources :users, only: [:new, :create, :show]
+  resources :categories, only: [:index, :show]
   root to: 'users#index'
 
   namespace "admin" do

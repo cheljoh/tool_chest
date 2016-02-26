@@ -20,10 +20,6 @@ class ToolsController < ApplicationController
   def new
     user = current_user
     @tool = user.tools.new
-    # @tool.category = Category.create(name: "fun")
-    # @categories = Category.pluck(:name)
-    # @tool.category = Category.save
-    # @tool = Tool.new
   end
 
   def create

@@ -5,15 +5,6 @@
   <%= f.text_field :quantity %>
   <%= f.label :price %>
   <%= f.text_field :price %>
-  <%= select("tool", :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {prompt: 'Select Category'}) %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: 'Select Category'}) %>
   <%= f.submit %>
 <% end %>
-
-
-
-
-
-
-
-
-<!-- form_for is helper, wil know to make button create tool -->

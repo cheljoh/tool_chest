@@ -17,6 +17,6 @@ class UserLogsOutTest < ActionDispatch::IntegrationTest
 
     click_link "logout"
 
-    refute page.has_content? "Welcome, chelsea"
+    refute page.has_content? "Hello chelsea"
   end
 end

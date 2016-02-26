@@ -1,8 +1,13 @@
 <h1>Tool</h1>
 
 <div class = "tool_info">
-<%= @tool.name %> - <%= @tool.quantity %>
-<%= @tool.formatted_price %>
+<%= "Name: #{@tool.name}" %> - <%= "Quantity: #{@tool.quantity}" %>
+<%= "Price: #{@tool.formatted_price}" %>
+<% if @tool.category.nil?  %>
+  <%= "No category chosen" %>
+<% else %>
+  <%= "Category: #{@tool.category.name}" %>
+<% end %>
 <%= link_to "Destroy #{@tool.name}", tool_path(@tool.id), method: "delete" %>
 <%= link_to "Update #{@tool.name}", edit_tool_path(@tool.id) %>
 </div>

@@ -1,0 +1,10 @@
+<h1><%= @category.name%></h1>
+
+
+<h3>Tools Associated with this Category:</h3>
+
+<% @category_tools.each do |tool|  %>
+
+  <%= tool.name  %>
+
+<% end %>
