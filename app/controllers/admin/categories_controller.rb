@@ -9,6 +9,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def create
+    byebug
     @category = Category.new(category_params)
     if @category.save
       redirect_to admin_category_path(@category)
@@ -29,7 +30,7 @@ class Admin::CategoriesController < Admin::BaseController
   def update #this actually is being called, using new. need to fix
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      redirect to admin_category_path(@category)
+      redirect_to admin_category_path(@category)
     else
       render :edit
     end

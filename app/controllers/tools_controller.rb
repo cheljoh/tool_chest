@@ -1,4 +1,5 @@
 class ToolsController < ApplicationController
+  #before_action :find_tool, only [:show, :edit, :update] to do the find tool a lot, put actual method in private area 
 
   def index
     user = current_user
